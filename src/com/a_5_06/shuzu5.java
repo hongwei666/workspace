@@ -14,17 +14,18 @@ public class shuzu5 {
         int[] a = {1, 7, 9, 11, 13, 15, 17, 19};
         int[] b = {2, 4, 6, 8, 10};
         int[] c = new int[a.length + b.length];
-        for (int i = 0; i < a.length; i++) {
-            if (i < a.length) {
-                c[i] = a[i];
-            } else
-                c[a.length + i] = b[i];
-        }
-        a = Arrays.copyOf(a, a.length + b.length);//数组扩容
-        System.arraycopy(b, 0, a, a.length, b.length);
-/**
- * 循环遍历
- */
+        //使用一个循环扩容数组
+//        for (int i = 0; i < c.length; i++) {
+//            if (i < a.length) {
+//                c[i] = a[i];
+//            }
+//            else
+//                c[i]=b[i-a.length];
+//        }
+        //使用Arrays类扩容数组，有问题,已经修复于5.12晚上0.50
+        c = Arrays.copyOf(a, a.length + b.length);//数组扩容
+        System.arraycopy(b, 0, c, a.length, b.length);
+        //循环遍历扩容数组
 //        for (int i = 0; i < a.length; i++) {
 //            c[i] = a[i];
 //        }
@@ -32,8 +33,11 @@ public class shuzu5 {
 //            c[a.length+i] = b[i];
 //        }
 
-        for (int i = 0; i < a.length; i++) {
-            System.out.println(a[i]);
-        }
+        //遍历输出数组
+//        for (int i = 0; i < c.length; i++) {
+//            System.out.println(c[i]);
+//        }
+        Util.compare(c);
+        System.out.println(Arrays.toString(c));
     }
 }
