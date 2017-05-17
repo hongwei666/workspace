@@ -27,12 +27,12 @@ public class GenericDemo {
         tell(i);
     }
 
-    /**
+    /**？
      * 通配符
      *
      * @param i
      */
-    public static void tell(Info<String> i) {
+    public static void tell(Info<?> i) {
         System.out.println(i);
     }
 }
